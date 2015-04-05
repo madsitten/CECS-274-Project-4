@@ -21,12 +21,13 @@ public class GUI {
 			String userMenu = "1. Search by title\n"
 					+ "2. Search by artist\n"
 					+ "3. Search by album\n"
-					+ "4. Add a song\n"
-					+ "5. Delete a song by index\n"
-					+ "6. Delete a song by title\n"
-					+ "7. Display by song title\n"
-					+ "8. Display by artist\n"
-					+ "9. Quit";
+					+ "4. Search by index\n"
+					+ "5. Add a song\n"
+					+ "6. Delete a song by index\n"
+					+ "7. Delete a song by title\n"
+					+ "8. Display by song title\n"
+					+ "9. Display by artist\n"
+					+ "10. Quit";
 			System.out.println(userMenu);
 			
 			Scanner userInput = new Scanner(System.in);
@@ -43,7 +44,7 @@ public class GUI {
 			}
 			
 			//Ensure user response is within required range
-			if ((userResponse < 1 || userResponse > 9) && validInput == true) {
+			if ((userResponse < 1 || userResponse > 10) && validInput == true) {
 				System.out.println("Incorrect input.");
 				validInput = false;
 			}
@@ -61,21 +62,24 @@ public class GUI {
 						Operations.searchAlbum(songList);
 						break;
 					case 4:
-						Operations.addSong(songList);
+						Operations.searchIndex(songList);
 						break;
 					case 5:
-						Operations.deleteIndex(songList);
+						Operations.addSong(songList);
 						break;
 					case 6:
-						Operations.deleteTitle(songList);
+						Operations.deleteIndex(songList);
 						break;
 					case 7:
-						Operations.dispTitle(songList);
+						Operations.deleteTitle(songList);
 						break;
 					case 8:
+						Operations.dispTitle(songList);
+						break;
+					case 9:
 						Operations.dispArtist(songList);
 						break;
-					case 9:	
+					case 10:	
 						Operations.dispTitle(songList);
 						Operations.saveSongs(songList);
 						System.out.println("Goodbye!");

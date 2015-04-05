@@ -59,6 +59,19 @@ public class Operations {
 		}
 	}
 	/**
+	 * Search for a song by index, and if found display all info about songs
+	 * @param songList ArrayList<song> of songs to search through
+	 */
+	public static void searchIndex(ArrayList<Song> songList){
+		System.out.println("Enter an index:");
+		int query = getUserInt();
+		if(query >= 0 && query < songList.size()){
+			System.out.println(songList.get(query));
+		} else {
+			System.out.println("Index out of bounds");
+		}
+	}
+	/**
 	 * Add a song to the songList
 	 * @param songList ArrayList<song> of songs to add to
 	 */
