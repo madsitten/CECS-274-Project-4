@@ -222,7 +222,7 @@ public class Operations {
 		
 		//Read the file
 		try{
-			Scanner read = new Scanner(new File("SongList.txt"));
+			Scanner read = new Scanner(new File("Songs.txt"));
 			do{
 				String line = read.nextLine();
 				Scanner s = new Scanner(line).useDelimiter(",");
@@ -242,7 +242,7 @@ public class Operations {
 	public static void saveSongs(ArrayList<Song> songList){
 		//Write to file
 		try{
-			PrintWriter writer = new PrintWriter("SongList.txt");
+			PrintWriter writer = new PrintWriter("Songs.txt");
 			for(int i=0; i<songList.size(); i++){
 				writer.println(songList.get(i));
 			}
