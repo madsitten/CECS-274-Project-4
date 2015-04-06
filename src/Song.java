@@ -63,6 +63,17 @@ public class Song {
 		return album;
 	}
 	/**
+	 * Compares this song against a given song for order
+	 * @param s Song to compare to
+	 * @return Negative if this string is smaller, 0 if equal, positive if this string is greater
+	 */
+	public int compareTo(Song s){
+		if(artist.compareToIgnoreCase(s.getArtist()) == 0){
+			return title.compareToIgnoreCase(s.getTitle());
+		}
+		return artist.compareToIgnoreCase(s.getArtist());
+	}
+	/**
 	 * Returns song information as a string
 	 */
 	public String toString(){
