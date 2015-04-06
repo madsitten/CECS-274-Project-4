@@ -71,13 +71,17 @@ public class LinkedList {
 	public void add( Song s ){
 		first = add( s, first );
 	}
-	/**
-	 * Add a string to the LinkedList
-	 * @param s String to be added
-	 * @param i Index of string to be added
-	 */
-	public void add( Song s, int i ){
-		add( s, first, i, 0 );
+	public void add( Song s, int i ) {
+		if( i < 0 || i > size() ) {
+			System.out.println("Index out of bounds.");
+		} else {
+			if( i == 0 ){
+				first = new Node( s, first );
+			} else {
+				Node prev = get( i - 1 );
+				prev.setNext( new Node( s, prev.getNext() ) );
+			}
+		}
 	}
 	/**
 	 * Recursively add a string to the LinkedList
@@ -93,42 +97,22 @@ public class LinkedList {
 			return list;
 		}
 	}
-	/**
-	 * Recursively add a string to the LinkedList
-	 * @param s String to be added
-	 * @param list Starting node in the LinkedList
-	 * @param i Index of string to be added
-	 * @param count Iterative counter
-	 * @return New node that was added
-	 */
-	private Node add( Song s, Node list, int i, int count ){
-		if( list == null ){
-			System.out.println("Could not add node " + s);
-			return null;
-		}else if( i == 0 ){
-			Node next = list;
-			list = new Node(s);
-			list.setNext(next);
-			first = list;
-			return list;
-		}else if( count + 1 == i ){
-			Node n = new Node(s);
-			Node next = list.getNext();
-			list.setNext( n );
-			list.getNext().setNext( next );
-			return list;
-		}else{
-			list.setNext( add( s, list.getNext(), i, count+1 ) );
-			return list;
+	
+	public Node remove( int i ) {
+		Node n = null;
+		if( i < 0 || i >= size() ) {
+			System.out.println("Index out of bounds.");
+		} else {
+			if( i == 0 ) {
+				n = first;
+				first = first.getNext();
+			} else {
+				Node prev = get( i - 1 );
+				n = prev.getNext();
+				prev.setNext( prev.getNext().getNext() );
+			}
 		}
-	}
-	/**
-	 * Remove a node from the LinkedList
-	 * @param i Index of the node to remove
-	 * @return Node that was removed
-	 */
-	public Node remove( int i ){
-		return remove( i, 0, first );
+		return n;
 	}
 	/**
 	 * Remove a node from the LinkedList
@@ -154,27 +138,6 @@ public class LinkedList {
 			}
 		}
 		return null;
-	}
-	/**
-	 * Recursively remove a node from the LinkedList
-	 * @param i Index of the node to remove
-	 * @param count Iterative counter
-	 * @param list Starting node in the LinkedList
-	 * @return Node that was removed
-	 */
-	private Node remove( int i, int count, Node list ){
-		if( list == null ){
-			return null;
-		}else if( i == 0 ){
-			first = list.getNext();
-			return list;
-		}else if( count + 1 == i ){
-			Node n = list.getNext();
-			if( list.getNext() != null ){
-				list.setNext( list.getNext().getNext() ); }
-			return n;
-		} else{
-			return remove( i, count+1, list.getNext() ); }
 	}
 	
 	public LinkedList clone(){
@@ -202,7 +165,7 @@ public class LinkedList {
 	 */
 	private String createString(Node list, String build){
 		if(list != null){
-			build = build + list.getValue() + " ";
+			build = build + list.getValue() + " \n";
 			return createString(list.getNext(), build);
 		}
 		return build;
