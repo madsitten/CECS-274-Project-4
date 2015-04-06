@@ -26,9 +26,10 @@ public class GUI {
 					+ "6. Modify a song\n"
 					+ "7. Delete a song by index\n"
 					+ "8. Delete a song by title\n"
-					+ "9. Display by song title\n"
-					+ "10. Display by artist\n"
-					+ "11. Quit";
+					+ "9. Display number of songs\n"
+					+ "10. Display by song title\n"
+					+ "11. Display by artist\n"
+					+ "12. Quit";
 			System.out.println(userMenu);
 			
 			Scanner userInput = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class GUI {
 			}
 			
 			//Ensure user response is within required range
-			if ((userResponse < 1 || userResponse > 11) && validInput == true) {
+			if ((userResponse < 1 || userResponse > 12) && validInput == true) {
 				System.out.println("Incorrect input.");
 				validInput = false;
 			}
@@ -78,12 +79,15 @@ public class GUI {
 						Operations.deleteTitle(songList);
 						break;
 					case 9:
-						Operations.dispTitle(songList);
+						Operations.dispTotal(songList);
 						break;
 					case 10:
+						Operations.dispTitle(songList);
+						break;
+					case 11:
 						Operations.dispArtist(songList);
 						break;
-					case 11:	
+					case 12:	
 						Operations.dispTitle(songList);
 						Operations.saveSongs(songList);
 						System.out.println("Goodbye!");

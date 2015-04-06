@@ -170,6 +170,13 @@ public class Operations {
 	 * Displays songs sorted by song title
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
+	public static void dispTotal(LinkedList songList){
+		System.out.println(songList.size() + " Songs");
+	}
+	/**
+	 * Displays songs sorted by song title
+	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
+	 */
 	public static void dispTitle(LinkedList songListUnsort){
 		LinkedList songList = songListUnsort.clone();
 		//Sort the ArrayList
