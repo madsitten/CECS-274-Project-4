@@ -165,15 +165,15 @@ public class Operations {
 	 * Displays songs sorted by artist, and secondarily by songs
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
-	public static void dispArtist(ArrayList<Song> songListUnsort){
-		ArrayList<Song> songList = (ArrayList<Song>) songListUnsort.clone();
+	public static void dispArtist(LinkedList songListUnsort){
+		LinkedList songList = (LinkedList) songListUnsort.clone();
 		//Sort the ArrayList
 		int i = 0;
 		while(i < songList.size()){
 			int j = 0;
 			while(j < songList.size()){
 				if(songList.get(i).getArtist().compareToIgnoreCase(songList.get(j).getArtist()) < 0){
-					Song temp = songList.get(i);
+					Song temp = songList.get(i).getValue;
 					songList.set(i, songList.get(j));
 					songList.set(j, temp);
 				}
