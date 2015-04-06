@@ -145,11 +145,12 @@ public class Operations {
 			int j = 0;
 			while(j < songList.size()){
 				if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
-					Song temp = songList.get(i).getValue();
+					Song tempi = songList.get(i).getValue();
+					Song tempj = songList.get(j).getValue();
 					songList.remove(i);
-					songList.add(songList.get(j).getValue(), i);
+					songList.add(tempj, i);
 					songList.remove(j);
-					songList.add(temp, j);
+					songList.add(tempi, j);
 				}
 				j++;
 			}
@@ -167,40 +168,8 @@ public class Operations {
 	 * Displays songs sorted by artist, and secondarily by songs
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
-	public static void dispArtist(LinkedList songListUnsort){
-		LinkedList songList = songListUnsort.clone();
-		//Sort the ArrayList
-		int i = 0;
-		while(i < songList.size()){
-			int j = 0;
-			while(j < songList.size()){
-				if(songList.get(i).getValue().getArtist().compareToIgnoreCase(songList.get(j).getValue().getArtist()) < 0){
-					Song temp = songList.get(i).getValue();
-					songList.remove(i);
-					songList.add(songList.get(j).getValue(), i);
-					songList.remove(j);
-					songList.add(temp, j);
-				}
-				if(songList.get(i).getValue().getArtist().compareToIgnoreCase(songList.get(j).getValue().getArtist()) == 0){
-					if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
-						Song temp = songList.get(i).getValue();
-						songList.remove(i);
-						songList.add(songList.get(j).getValue(), i);
-						songList.remove(j);
-						songList.add(temp, j);
-					}
-				}
-				j++;
-			}
-			i++;
-		}
-		
-		//Print out the results
-		i = 0;
-		while(i < songList.size()){
-			System.out.println(songList.get(i));
-			i++;
-		}
+	public static void dispArtist(LinkedList songList){
+		System.out.println(songList);
 	}
 	/**
 	 * Get user input in the form of a string
