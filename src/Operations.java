@@ -23,7 +23,7 @@ public class Operations {
 		int i = 0;
 		while(i < songList.size()){
 			if(songList.get(i).getValue().getTitle().equalsIgnoreCase(query)){
-				System.out.println(songList.get(i));
+				System.out.println(songList.get(i).getValue());
 			}
 			i++;
 		}
@@ -38,7 +38,7 @@ public class Operations {
 		int i = 0;
 		while(i < songList.size()){
 			if(songList.get(i).getValue().getArtist().equalsIgnoreCase(query)){
-				System.out.println(songList.get(i));
+				System.out.println(songList.get(i).getValue());
 			}
 			i++;
 		}
@@ -53,7 +53,7 @@ public class Operations {
 		int i = 0;
 		while(i < songList.size()){
 			if(songList.get(i).getValue().getAlbum().equalsIgnoreCase(query)){
-				System.out.println(songList.get(i));
+				System.out.println(songList.get(i).getValue());
 			}
 			i++;
 		}
@@ -66,7 +66,7 @@ public class Operations {
 		System.out.println("Enter an index:");
 		int query = getUserInt();
 		if(query >= 0 && query < songList.size()){
-			System.out.println(songList.get(query));
+			System.out.println(songList.get(query).getValue());
 		} else {
 			System.out.println("Index out of bounds");
 		}
@@ -97,7 +97,7 @@ public class Operations {
 		int i = 0;
 		while(i < songList.size()){
 			System.out.print(i + 1);
-			System.out.println(" " + songList.get(i));
+			System.out.println(" " + songList.get(i).getValue());
 			i++;
 		}
 		System.out.println("Enter an index number to delete or -1 to cancel:");
@@ -157,7 +157,7 @@ public class Operations {
 		//Print out the results
 		i = 0;
 		while(i < songList.size()){
-			System.out.println(songList.get(i));
+			System.out.println(songList.get(i).getValue());
 			i++;
 		}
 	}
