@@ -117,6 +117,8 @@ public class Operations {
 				case 2:
 					System.out.println("Enter a new artist");
 					modSong.setArtist(getUserString());
+					songList.remove(indexNumber - 1);
+					songList.add(modSong);
 					break;
 				case 3:
 					System.out.println("Enter a new album");
