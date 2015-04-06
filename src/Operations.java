@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Operations {
 	/**
 	 * Search for a song by title, and if found display all info about particular song
-	 * @param songList ArrayList<song> of songs to search through
+	 * @param songList LinkedList of songs to search through
 	 */
 	public static void searchTitle(LinkedList songList){
 		System.out.println("Enter a song title:");
@@ -29,8 +29,8 @@ public class Operations {
 		}
 	}
 	/**
-	 * Search for a song by artist, and if found display all info about songs
-	 * @param songList ArrayList<song> of songs to search through
+	 * Search for songs by artist, and if found display all info about songs
+	 * @param songList LinkedList of songs to search through
 	 */
 	public static void searchArtist(LinkedList songList){
 		System.out.println("Enter an artist:");
@@ -44,8 +44,8 @@ public class Operations {
 		}
 	}
 	/**
-	 * Search for a song by album, and if found display all info about songs
-	 * @param songList ArrayList<song> of songs to search through
+	 * Search for songs by album, and if found display all info about songs
+	 * @param songList LinkedList of songs to search through
 	 */
 	public static void searchAlbum(LinkedList songList){
 		System.out.println("Enter an album:");
@@ -59,8 +59,8 @@ public class Operations {
 		}
 	}
 	/**
-	 * Search for a song by index, and if found display all info about songs
-	 * @param songList ArrayList<song> of songs to search through
+	 * Search for a song by index, and if found display all info about song
+	 * @param songList LinkedList of songs to search through
 	 */
 	public static void searchIndex(LinkedList songList){
 		System.out.println("Enter an index:");
@@ -73,7 +73,7 @@ public class Operations {
 	}
 	/**
 	 * Add a song to the songList
-	 * @param songList ArrayList<song> of songs to add to
+	 * @param songList LinkedList of songs to add to
 	 */
 	public static void addSong(LinkedList songList){
 		System.out.println("Enter the Title:");
@@ -90,8 +90,8 @@ public class Operations {
 		System.out.println("Your song has been added!");
 	}
 	/**
-	 * Add a song to the songList
-	 * @param songList ArrayList<song> of songs to add to
+	 * Modify a song in the songList
+	 * @param songList LinkedList of songs to modify in
 	 */
 	public static void modifySong(LinkedList songList){
 		int i = 0;
@@ -124,7 +124,7 @@ public class Operations {
 	}
 	/**
 	 * Deletes a song based on an index value provided by a user from a given list of songs
-	 * @param songList ArrayList<song> of songs to delete from
+	 * @param songList LinkedList of songs to delete from
 	 */
 	public static void deleteIndex(LinkedList songList){
 		int i = 0;
@@ -145,7 +145,7 @@ public class Operations {
 	}
 	/**
 	 * Deletes a song based on the title provided by a user
-	 * @param songList ArrayList<song> of songs to delete from
+	 * @param songList LinkedList of songs to delete from
 	 */
 	public static void deleteTitle(LinkedList songList){
 		System.out.println("Enter a song title:");
@@ -167,18 +167,18 @@ public class Operations {
 		}
 	}
 	/**
-	 * Displays songs sorted by song title
-	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
+	 * Displays the total number of songs in the organizer
+	 * @param songList LinkedList of songs
 	 */
 	public static void dispTotal(LinkedList songList){
 		System.out.println(songList.size() + " Songs");
 	}
 	/**
 	 * Displays songs sorted by song title
-	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
+	 * @param songListUntouchable LinkedList of songs to sort (list is untouchable)
 	 */
-	public static void dispTitle(LinkedList songListUnsort){
-		LinkedList songList = songListUnsort.clone();
+	public static void dispTitle(LinkedList songListUntouchable){
+		LinkedList songList = songListUntouchable.clone();
 		//Sort the ArrayList
 		int i = 0;
 		while(i < songList.size()){
@@ -206,7 +206,7 @@ public class Operations {
 	}
 	/**
 	 * Displays songs sorted by artist, and secondarily by songs
-	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
+	 * @param songList LinkedList of songs to sort
 	 */
 	public static void dispArtist(LinkedList songList){
 		System.out.println(songList);
@@ -242,8 +242,8 @@ public class Operations {
 	// FILE OPERATIONS
 	
 	/**
-	 * Load songs from file into an ArrayList<song>
-	 * @return ArrayList<song> of assorted songs
+	 * Load songs from file into a LinkedList
+	 * @return LinkedList of assorted songs
 	 */
 	public static LinkedList loadSongs(){
 		LinkedList songList = new LinkedList();
@@ -264,8 +264,8 @@ public class Operations {
 		return songList;
 	}
 	/**
-	 * Save songs to file from an ArrayList<song>
-	 * @param songList ArrayList<song> of assorted songs
+	 * Save songs to file from an LinkedList
+	 * @param songList LinkedList of assorted songs
 	 */
 	public static void saveSongs(LinkedList songList){
 		//Write to file

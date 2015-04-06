@@ -1,5 +1,5 @@
 /**
- * Recursive Linked List of String nodes
+ * Linked List of String nodes
  * @author Julian Poyourow
  *
  */
@@ -29,7 +29,7 @@ public class LinkedList {
 		return size(first);
 	}
 	/**
-	 * Recursively calculate the size of the LinkedList
+	 * Calculate the size of the LinkedList
 	 * @param list Starting node
 	 * @return Total size of LinkedList
 	 */
@@ -49,7 +49,7 @@ public class LinkedList {
 		return get( i, 0, first );
 	}
 	/**
-	 * Recursively access a node in the LinkedList
+	 * Access a node in the LinkedList
 	 * @param i Index of the node
 	 * @param count Counter for iteration
 	 * @param list Starting node in list
@@ -65,8 +65,8 @@ public class LinkedList {
 		}
 	}
 	/**
-	 * Add a string to the LinkedList
-	 * @param s String to be added
+	 * Add a song to the LinkedList
+	 * @param s Song to be added
 	 */
 	public void add( Song s ) {
 		int i = 0;
@@ -90,7 +90,11 @@ public class LinkedList {
 			i++;
 		}while(i <= size());
 	}
-	
+	/**
+	 * Add a song to the LinkedList at a particular index
+	 * @param s Song to be added
+	 * @param i Index to add at
+	 */
 	public void add( Song s, int i ) {
 		if( i < 0 || i > size() ) {
 			System.out.println("Index out of bounds.");
@@ -103,7 +107,10 @@ public class LinkedList {
 			}
 		}
 	}
-	
+	/**
+	 * Remove a song by index from the LinkedList
+	 * @param i Index to remove
+	 */
 	public Node remove( int i ) {
 		Node n = null;
 		if( i < 0 || i >= size() ) {
@@ -122,7 +129,7 @@ public class LinkedList {
 	}
 	/**
 	 * Remove a node from the LinkedList
-	 * @param s String value of node to remove
+	 * @param s Song value of node to remove
 	 * @return Node that was removed
 	 */
 	public Node remove( Song s ){
@@ -130,7 +137,7 @@ public class LinkedList {
 	}
 	/**
 	 * Remove a node from the LinkedList
-	 * @param s String value of a node to remove
+	 * @param s Song value of a node to remove
 	 * @return Node that was removed
 	 */
 	public Node remove( Song s, Node list ){
@@ -145,7 +152,10 @@ public class LinkedList {
 		}
 		return null;
 	}
-	
+	/**
+	 * Clone the LinkedList into another LinkedList
+	 * @param s Song to be added
+	 */
 	public LinkedList clone(){
 		LinkedList list = new LinkedList();
 		for(int i=0; i < size(); i++){

@@ -1,23 +1,23 @@
 /**
- * Node of an LinkedList of Circles
+ * Node of an LinkedList of Songs
  * @author Julian Poyourow
  *
  */
 public class Node {
-	/** Value of the Node, holding a Circle object */
+	/** Value of the Node, holding a Song object */
 	private Song value;
-	/** Next item in the LinkedList of Circle Nodes */
+	/** Next item in the LinkedList of Song Nodes */
 	private Node next;
 	/**
-	 * Creates a node for a circle
-	 * @param v Value of node (circle)
+	 * Creates a node for a song
+	 * @param v Value of node (song)
 	 */
 	public Node( Song v ) {
 		value = v;
 		next = null;
 	}
 	/**
-	 * Creates a node for a circle with a next node specified
+	 * Creates a node for a song with a next node specified
 	 * @param v Value of node (circle)
 	 * @param n Next node
 	 */
@@ -41,14 +41,14 @@ public class Node {
 	}
 	/**
 	 * Gets the value of the node
-	 * @return Circle as part of node
+	 * @return Song as part of node
 	 */
 	public Song getValue() {
 		return value;
 	}
 	/**
 	 * Sets the value of the node
-	 * @param v Circle as the value of node
+	 * @param v Song as the value of node
 	 */
 	public void setValue( Song v ) {
 		value = v;

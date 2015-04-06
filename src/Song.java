@@ -74,13 +74,15 @@ public class Song {
 		return artist.compareToIgnoreCase(s.getArtist());
 	}
 	/**
-	 * Returns song information as a string
+	 * Transforms the song into a string
+	 * @return Song information as a string
 	 */
 	public String toString(){
 		return title + "," + artist + "," + album + "," + length;
 	}
 	/**
-	 * Returns song count
+	 * Gets the count of songs
+	 * @return Song count
 	 */
 	public int songCount(){
 		return songCount;
