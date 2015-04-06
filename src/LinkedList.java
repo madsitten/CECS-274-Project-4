@@ -68,9 +68,29 @@ public class LinkedList {
 	 * Add a string to the LinkedList
 	 * @param s String to be added
 	 */
-	public void add( Song s ){
-		first = add( s, first );
+	public void add( Song s ) {
+		int i = 0;
+		do{
+			if(first == null){
+				first = new Node( s, null );
+				break;
+			} else if(get(i) == null){
+				Node prev = get( i - 1 );
+				prev.setNext( new Node( s, null ) );
+				break;
+			} else if(get(i).getValue().compareTo(s) >= 0){
+				if( i == 0 ){
+					first = new Node( s, first );
+				} else {
+					Node prev = get( i - 1 );
+					prev.setNext( new Node( s, prev.getNext() ) );
+				}
+				break;
+			}
+			i++;
+		}while(i <= size());
 	}
+	
 	public void add( Song s, int i ) {
 		if( i < 0 || i > size() ) {
 			System.out.println("Index out of bounds.");
@@ -81,20 +101,6 @@ public class LinkedList {
 				Node prev = get( i - 1 );
 				prev.setNext( new Node( s, prev.getNext() ) );
 			}
-		}
-	}
-	/**
-	 * Recursively add a string to the LinkedList
-	 * @param s String to be added
-	 * @param list Starting node in the LinkedList
-	 * @return New node that was added
-	 */
-	private Node add( Song s, Node list ){
-		if( list == null ){
-			return new Node(s);
-		}else{
-			list.setNext( add( s, list.getNext() ) );
-			return list;
 		}
 	}
 	
