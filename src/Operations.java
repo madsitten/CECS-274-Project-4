@@ -231,6 +231,16 @@ public class Operations {
 					songList.remove(j);
 					songList.add(tempi, j);
 				}
+				if(songList.get(i).getValue().getAlbum().compareToIgnoreCase(songList.get(j).getValue().getAlbum()) == 0){
+					if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
+						Song tempi = songList.get(i).getValue();
+						Song tempj = songList.get(j).getValue();
+						songList.remove(i);
+						songList.add(tempj, i);
+						songList.remove(j);
+						songList.add(tempi, j);
+					}
+				}
 				j++;
 			}
 			i++;
