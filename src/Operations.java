@@ -230,8 +230,8 @@ public class Operations {
 	 * Load songs from file into an ArrayList<song>
 	 * @return ArrayList<song> of assorted songs
 	 */
-	public static ArrayList<Song> loadSongs(){
-		ArrayList<Song> songList = new ArrayList<Song>();
+	public static LinkedList loadSongs(){
+		LinkedList songList = new LinkedList();
 		
 		//Read the file
 		try{
@@ -252,12 +252,12 @@ public class Operations {
 	 * Save songs to file from an ArrayList<song>
 	 * @param songList ArrayList<song> of assorted songs
 	 */
-	public static void saveSongs(ArrayList<Song> songList){
+	public static void saveSongs(LinkedList songList){
 		//Write to file
 		try{
 			PrintWriter writer = new PrintWriter("Songs.txt");
 			for(int i=0; i<songList.size(); i++){
-				writer.println(songList.get(i));
+				writer.println(songList.get(i).getValue());
 			}
 			writer.close();
 		}catch(FileNotFoundException e){
