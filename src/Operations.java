@@ -138,7 +138,7 @@ public class Operations {
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
 	public static void dispTitle(LinkedList songListUnsort){
-		LinkedList songList = (LinkedList) songListUnsort.clone();
+		LinkedList songList = songListUnsort.clone();
 		//Sort the ArrayList
 		int i = 0;
 		while(i < songList.size()){
@@ -166,7 +166,7 @@ public class Operations {
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
 	public static void dispArtist(LinkedList songListUnsort){
-		LinkedList songList = (LinkedList) songListUnsort.clone();
+		LinkedList songList = songListUnsort.clone();
 		//Sort the ArrayList
 		int i = 0;
 		while(i < songList.size()){

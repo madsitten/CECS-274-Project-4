@@ -177,6 +177,14 @@ public class LinkedList {
 			return remove( i, count+1, list.getNext() ); }
 	}
 	
+	public LinkedList clone(){
+		LinkedList list = new LinkedList();
+		for(int i=0; i < size(); i++){
+			list.add(get(i).getValue());
+		}
+		return list;
+	}
+	
 	/**
 	 * Converts the LinkedList to a pretty string
 	 * @return Pretty string of the LinkedList
