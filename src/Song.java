@@ -63,6 +63,41 @@ public class Song {
 		return album;
 	}
 	/**
+	 * Provides the song length
+	 * @return Song album
+	 */
+	public String getLength(){
+		return length;
+	}
+	/**
+	 * Sets the song title
+	 * @param title Song title
+	 */
+	public void setTitle(String title){
+		this.title = title;
+	}
+	/**
+	 * Sets the song artist
+	 * @param Song artist
+	 */
+	public void setArtist(String artist){
+		this.artist = artist;
+	}
+	/**
+	 * Sets the song album
+	 * @param Song album
+	 */
+	public void setAlbum(String album){
+		this.album = album;
+	}
+	/**
+	 * Sets the song length
+	 * @param Song length
+	 */
+	public void setLength(String length){
+		this.length = length;
+	}
+	/**
 	 * Compares this song against a given song for order
 	 * @param s Song to compare to
 	 * @return Negative if this string is smaller, 0 if equal, positive if this string is greater
