@@ -213,6 +213,37 @@ public class Operations {
 		}
 	}
 	/**
+	 * Displays songs sorted by song album
+	 * @param songListUntouchable LinkedList of songs to sort (list is untouchable)
+	 */
+	public static void dispAlbum(LinkedList songListUntouchable){
+		LinkedList songList = songListUntouchable.clone();
+		//Sort the ArrayList
+		int i = 0;
+		while(i < songList.size()){
+			int j = 0;
+			while(j < songList.size()){
+				if(songList.get(i).getValue().getAlbum().compareToIgnoreCase(songList.get(j).getValue().getAlbum()) < 0){
+					Song tempi = songList.get(i).getValue();
+					Song tempj = songList.get(j).getValue();
+					songList.remove(i);
+					songList.add(tempj, i);
+					songList.remove(j);
+					songList.add(tempi, j);
+				}
+				j++;
+			}
+			i++;
+		}
+		
+		//Print out the results
+		i = 0;
+		while(i < songList.size()){
+			System.out.println(songList.get(i).getValue());
+			i++;
+		}
+	}
+	/**
 	 * Displays songs sorted by artist, and secondarily by songs
 	 * @param songList LinkedList of songs to sort
 	 */

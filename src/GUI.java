@@ -29,7 +29,8 @@ public class GUI {
 					+ "9. Display number of songs\n"
 					+ "10. Display by song title\n"
 					+ "11. Display by artist\n"
-					+ "12. Quit";
+					+ "12. Display by album\n"
+					+ "13. Quit";
 			System.out.println(userMenu);
 			
 			Scanner userInput = new Scanner(System.in);
@@ -46,7 +47,7 @@ public class GUI {
 			}
 			
 			//Ensure user response is within required range
-			if ((userResponse < 1 || userResponse > 12) && validInput == true) {
+			if ((userResponse < 1 || userResponse > 13) && validInput == true) {
 				System.out.println("Incorrect input.");
 				validInput = false;
 			}
@@ -87,7 +88,10 @@ public class GUI {
 					case 11:
 						Operations.dispArtist(songList);
 						break;
-					case 12:	
+					case 12:
+						Operations.dispAlbum(songList);
+						break;
+					case 13:	
 						Operations.dispTitle(songList);
 						Operations.saveSongs(songList);
 						System.out.println("Goodbye!");
