@@ -146,8 +146,10 @@ public class Operations {
 			while(j < songList.size()){
 				if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
 					Song temp = songList.get(i).getValue();
-					songList.set(i, songList.get(j));
-					songList.set(j, temp);
+					songList.remove(i);
+					songList.add(songList.get(j).getValue(), i);
+					songList.remove(j);
+					songList.add(temp, j);
 				}
 				j++;
 			}
@@ -172,16 +174,20 @@ public class Operations {
 		while(i < songList.size()){
 			int j = 0;
 			while(j < songList.size()){
-				if(songList.get(i).getArtist().compareToIgnoreCase(songList.get(j).getArtist()) < 0){
-					Song temp = songList.get(i).getValue;
-					songList.set(i, songList.get(j));
-					songList.set(j, temp);
+				if(songList.get(i).getValue().getArtist().compareToIgnoreCase(songList.get(j).getValue().getArtist()) < 0){
+					Song temp = songList.get(i).getValue();
+					songList.remove(i);
+					songList.add(songList.get(j).getValue(), i);
+					songList.remove(j);
+					songList.add(temp, j);
 				}
-				if(songList.get(i).getArtist().compareToIgnoreCase(songList.get(j).getArtist()) == 0){
-					if(songList.get(i).getTitle().compareToIgnoreCase(songList.get(j).getTitle()) < 0){
-						Song temp = songList.get(i);
-						songList.set(i, songList.get(j));
-						songList.set(j, temp);
+				if(songList.get(i).getValue().getArtist().compareToIgnoreCase(songList.get(j).getValue().getArtist()) == 0){
+					if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
+						Song temp = songList.get(i).getValue();
+						songList.remove(i);
+						songList.add(songList.get(j).getValue(), i);
+						songList.remove(j);
+						songList.add(temp, j);
 					}
 				}
 				j++;
