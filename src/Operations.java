@@ -90,6 +90,39 @@ public class Operations {
 		System.out.println("Your song has been added!");
 	}
 	/**
+	 * Add a song to the songList
+	 * @param songList ArrayList<song> of songs to add to
+	 */
+	public static void modifySong(LinkedList songList){
+		int i = 0;
+		while(i < songList.size()){
+			System.out.print(i + 1);
+			System.out.println(" " + songList.get(i).getValue());
+			i++;
+		}
+		System.out.println("Enter an index number to delete or -1 to cancel:");
+		int indexNumber = getUserInt();
+		if(indexNumber == -1){
+			System.out.println("Cancelled");
+		} else if (indexNumber < -1 || indexNumber == 0 || indexNumber - 1 >= songList.size()){
+			System.out.println("Out of range");
+		} else {
+			System.out.println("Enter the Title:");
+			String title = getUserString();
+			System.out.println("Enter the Artist:");
+			String artist = getUserString();
+			System.out.println("Enter the Album:");
+			String album = getUserString();
+			System.out.println("Enter the Length (m:ss):");
+			String length = getUserString();
+			
+			Song newSong = new Song(title, artist, album, length);
+			songList.remove(indexNumber - 1);
+			songList.add(newSong, indexNumber - 1);
+			System.out.println("Your song has been modified!");
+		}
+	}
+	/**
 	 * Deletes a song based on an index value provided by a user from a given list of songs
 	 * @param songList ArrayList<song> of songs to delete from
 	 */
