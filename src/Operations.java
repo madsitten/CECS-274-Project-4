@@ -100,25 +100,33 @@ public class Operations {
 			System.out.println(" " + songList.get(i).getValue());
 			i++;
 		}
-		System.out.println("Enter an index number to delete or -1 to cancel:");
+		System.out.println("Enter an index number to modify or -1 to cancel:");
 		int indexNumber = getUserInt();
 		if(indexNumber == -1){
 			System.out.println("Cancelled");
 		} else if (indexNumber < -1 || indexNumber == 0 || indexNumber - 1 >= songList.size()){
 			System.out.println("Out of range");
 		} else {
-			System.out.println("Enter the Title:");
-			String title = getUserString();
-			System.out.println("Enter the Artist:");
-			String artist = getUserString();
-			System.out.println("Enter the Album:");
-			String album = getUserString();
-			System.out.println("Enter the Length (m:ss):");
-			String length = getUserString();
-			
-			Song newSong = new Song(title, artist, album, length);
-			songList.remove(indexNumber - 1);
-			songList.add(newSong, indexNumber - 1);
+			System.out.println("Enter number to modify 1. Title 2. Artist 3. Album 4. Length");
+			Song modSong = songList.get(indexNumber - 1).getValue();
+			switch(getUserInt()){
+				case 1:
+					System.out.println("Enter a new title");
+					modSong.setTitle(getUserString());
+					break;
+				case 2:
+					System.out.println("Enter a new artist");
+					modSong.setArtist(getUserString());
+					break;
+				case 3:
+					System.out.println("Enter a new album");
+					modSong.setAlbum(getUserString());
+					break;
+				case 4:
+					System.out.println("Enter a new length (m:ss)");
+					modSong.setLength(getUserString());
+					break;
+			}
 			System.out.println("Your song has been modified!");
 		}
 	}
