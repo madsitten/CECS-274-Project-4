@@ -17,12 +17,12 @@ public class Operations {
 	 * Search for a song by title, and if found display all info about particular song
 	 * @param songList ArrayList<song> of songs to search through
 	 */
-	public static void searchTitle(ArrayList<Song> songList){
+	public static void searchTitle(LinkedList songList){
 		System.out.println("Enter a song title:");
 		String query = getUserString();
 		int i = 0;
 		while(i < songList.size()){
-			if(songList.get(i).getTitle().equalsIgnoreCase(query)){
+			if(songList.get(i).getValue().getTitle().equalsIgnoreCase(query)){
 				System.out.println(songList.get(i));
 			}
 			i++;
@@ -32,12 +32,12 @@ public class Operations {
 	 * Search for a song by artist, and if found display all info about songs
 	 * @param songList ArrayList<song> of songs to search through
 	 */
-	public static void searchArtist(ArrayList<Song> songList){
+	public static void searchArtist(LinkedList songList){
 		System.out.println("Enter an artist:");
 		String query = getUserString();
 		int i = 0;
 		while(i < songList.size()){
-			if(songList.get(i).getArtist().equalsIgnoreCase(query)){
+			if(songList.get(i).getValue().getArtist().equalsIgnoreCase(query)){
 				System.out.println(songList.get(i));
 			}
 			i++;
@@ -47,12 +47,12 @@ public class Operations {
 	 * Search for a song by album, and if found display all info about songs
 	 * @param songList ArrayList<song> of songs to search through
 	 */
-	public static void searchAlbum(ArrayList<Song> songList){
+	public static void searchAlbum(LinkedList songList){
 		System.out.println("Enter an album:");
 		String query = getUserString();
 		int i = 0;
 		while(i < songList.size()){
-			if(songList.get(i).getAlbum().equalsIgnoreCase(query)){
+			if(songList.get(i).getValue().getAlbum().equalsIgnoreCase(query)){
 				System.out.println(songList.get(i));
 			}
 			i++;
@@ -62,7 +62,7 @@ public class Operations {
 	 * Search for a song by index, and if found display all info about songs
 	 * @param songList ArrayList<song> of songs to search through
 	 */
-	public static void searchIndex(ArrayList<Song> songList){
+	public static void searchIndex(LinkedList songList){
 		System.out.println("Enter an index:");
 		int query = getUserInt();
 		if(query >= 0 && query < songList.size()){
@@ -75,7 +75,7 @@ public class Operations {
 	 * Add a song to the songList
 	 * @param songList ArrayList<song> of songs to add to
 	 */
-	public static void addSong(ArrayList<Song> songList){
+	public static void addSong(LinkedList songList){
 		System.out.println("Enter the Title:");
 		String title = getUserString();
 		System.out.println("Enter the Artist:");
@@ -93,7 +93,7 @@ public class Operations {
 	 * Deletes a song based on an index value provided by a user from a given list of songs
 	 * @param songList ArrayList<song> of songs to delete from
 	 */
-	public static void deleteIndex(ArrayList<Song> songList){
+	public static void deleteIndex(LinkedList songList){
 		int i = 0;
 		while(i < songList.size()){
 			System.out.print(i + 1);
@@ -114,12 +114,12 @@ public class Operations {
 	 * Deletes a song based on the title provided by a user
 	 * @param songList ArrayList<song> of songs to delete from
 	 */
-	public static void deleteTitle(ArrayList<Song> songList){
+	public static void deleteTitle(LinkedList songList){
 		System.out.println("Enter a song title:");
 		String query = getUserString();
 		int i = 0;
 		while(i < songList.size()){
-			if(songList.get(i).getTitle().equalsIgnoreCase(query)){
+			if(songList.get(i).getValue().getTitle().equalsIgnoreCase(query)){
 				break;
 			}
 			i++;
@@ -137,15 +137,15 @@ public class Operations {
 	 * Displays songs sorted by song title
 	 * @param songListUnsort ArrayList<song> of songs to sort (list is unsorted)
 	 */
-	public static void dispTitle(ArrayList<Song> songListUnsort){
-		ArrayList<Song> songList = (ArrayList<Song>) songListUnsort.clone();
+	public static void dispTitle(LinkedList songListUnsort){
+		LinkedList songList = (LinkedList) songListUnsort.clone();
 		//Sort the ArrayList
 		int i = 0;
 		while(i < songList.size()){
 			int j = 0;
 			while(j < songList.size()){
-				if(songList.get(i).getTitle().compareToIgnoreCase(songList.get(j).getTitle()) < 0){
-					Song temp = songList.get(i);
+				if(songList.get(i).getValue().getTitle().compareToIgnoreCase(songList.get(j).getValue().getTitle()) < 0){
+					Song temp = songList.get(i).getValue();
 					songList.set(i, songList.get(j));
 					songList.set(j, temp);
 				}

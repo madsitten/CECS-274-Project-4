@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class GUI {
 	public static void main(String[] args){
 		//Get each grade array from file
-		ArrayList<Song> songList = Operations.loadSongs();
+		LinkedList songList = Operations.loadSongs();
 		
 		//Main menu loop marker for application quit
 		mainloop:
