@@ -150,7 +150,7 @@ public class Operations {
 		} else if (indexNumber < -1 || indexNumber == 0 || indexNumber - 1 >= songList.size()){
 			System.out.println("Out of range");
 		} else {
-			songList.remove(i - 1);
+			songList.remove(indexNumber - 1);
 		}
 	}
 	/**
